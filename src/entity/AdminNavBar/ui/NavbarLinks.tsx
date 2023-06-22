@@ -17,7 +17,7 @@ export const NavbarLinks = (props: INavbarLinkProps) => {
             )}
           >
             <Icon color={isActive ? "#2A79CC" : ""} />
-            <p style={{ color: isActive ? "#2A79CC" : "" }}>{title}</p>
+            <p style={{ color: isActive ? "#2A79CC" : "black" }}>{title}</p>
           </div>
         );
       }}

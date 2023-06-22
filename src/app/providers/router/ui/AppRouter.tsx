@@ -6,15 +6,33 @@ const token = true;
 const userRole = true;
 const isAuth = true;
 
-console.log("privateRoutes", privateRoutes);
-
 const AppRouter = () => (
   <Suspense fallback={<div>Loading...</div>}>
     <Routes>
       {token && userRole && isAuth
-        ? privateRoutes.map((route) => (
-            <Route {...route} key={route.path} element={<route.element />} />
-          ))
+        ? privateRoutes.map((route) => {
+            if (route.chilren) {
+              return (
+                <Route {...route} key={route.path} element={<route.element />}>
+                  {route.chilren.map((child) => (
+                    <Route
+                      {...child}
+                      key={child.path}
+                      element={<child.element />}
+                    />
+                  ))}
+                </Route>
+              );
+            } else {
+              return (
+                <Route
+                  {...route}
+                  key={route.path}
+                  element={<route.element />}
+                />
+              );
+            }
+          })
         : publicRoutes.map((route) => (
             <Route {...route} key={route.path} element={<route.element />} />
           ))}

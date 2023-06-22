@@ -9,6 +9,7 @@ import {
   getRouteBasket,
   getRouteMain,
   getRouteNews,
+  getRouteOrders,
   getRouteServiceCard,
   getRouteVacancy,
 } from "shared/const /router";
@@ -38,6 +39,12 @@ export const privateRoutes = [
   {
     path: getRouteAdminPage(),
     element: AdminPage,
+    chilren: [
+      {
+        path: getRouteOrders(),
+        element: BasketPage,
+      },
+    ],
   },
 ];
 
