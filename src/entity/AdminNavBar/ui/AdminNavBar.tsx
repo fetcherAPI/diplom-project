@@ -1,6 +1,6 @@
 import React from "react";
 import { OrderIcon } from "../assets/SVGComponents/OrderIcon";
-import { getRouteAdminPage, getRouteOrders } from "shared/const /router";
+import { getRouteAdminPage, getRouteOrders } from "shared/const/router";
 import { NavbarLinks } from "./NavbarLinks";
 import classes from "./AdminNavBar.module.scss";
 import { useLocation } from "react-router";

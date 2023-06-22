@@ -5,7 +5,7 @@ import { loginByPassword } from "../model/services/LoginByPassword";
 
 export const LoginForm = () => {
   const dispatch = useAppDispatch();
-  const { isAuth } = useAppSelector((state) => state.Auth);
+  const { isAuth, isLoading } = useAppSelector((state) => state.Auth);
   const onFinish = (values: IAuthBody) => {
     dispatch(
       loginByPassword({ email: values.email, password: values.password })
@@ -54,7 +54,7 @@ export const LoginForm = () => {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" disabled={isLoading}>
           Войти
         </Button>
       </Form.Item>

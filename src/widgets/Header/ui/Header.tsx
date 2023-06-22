@@ -7,7 +7,7 @@ import {
   getRouteBasket,
   getRouteNews,
   getRouteVacancy,
-} from "shared/const /router";
+} from "shared/const/router";
 import { Login } from "features/Login";
 import { useAppSelector } from "shared/lib";
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import classes from "./ServiceCard.module.scss";
 import { useLocation } from "react-router-dom";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
@@ -55,7 +55,10 @@ export const ServiceCard = (props: Props) => {
             className={classes.remove_btn}
             onClick={() => handleRemoveFromBasket(id)}
           >
-            <DeleteFilled style={{ fontSize: "24px", color: "#fff" }} />
+            <DeleteFilled
+              style={{ fontSize: "24px", color: "#fff" }}
+              rev={undefined}
+            />
           </button>
           <span className={classes.basket_size_shower}>
             {OrdersInBasket.length}

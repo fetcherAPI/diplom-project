@@ -16,9 +16,7 @@ api.interceptors.request.use((config: any) => {
     config.headers["Content-Type"] = "multipart/form-datan";
   }
   if (tokenAvailability()) {
-    config.headers.Authorization = `Bearer ${localStorage.getItem(
-      "authentication"
-    )}`;
+    config.headers.Authorization = `Bearer ${localStorage.getItem("token")}`;
   }
   return config;
 });

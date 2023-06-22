@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./ServicesItem.module.scss";
 import { TServiceItemProps } from "./types";
 import { Link } from "react-router-dom";
-import { getRouteServiceCard } from "shared/const /router";
+import { getRouteServiceCard } from "shared/const/router";
 
 export const ServicesItem = (props: TServiceItemProps) => {
   const { serviceDetails, serviceTitle, imgUrl, id } = props;

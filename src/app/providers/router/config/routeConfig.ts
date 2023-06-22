@@ -1,3 +1,4 @@
+import { OrdersList } from "entity/OrdersList";
 import { AdminPage } from "pages/AdminPage";
 import { BasketPage } from "pages/BasketPage";
 import { MainPage } from "pages/MainPage";
@@ -12,7 +13,7 @@ import {
   getRouteOrders,
   getRouteServiceCard,
   getRouteVacancy,
-} from "shared/const /router";
+} from "shared/const/router";
 import { FirmStyle } from "widgets/FirmStyle";
 
 export const privateRoutes = [
@@ -43,7 +44,7 @@ export const privateRoutes = [
     chilren: [
       {
         path: getRouteOrders(),
-        element: BasketPage,
+        element: OrdersList,
       },
       {
         path: "fds",
