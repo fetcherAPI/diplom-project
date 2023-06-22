@@ -13,6 +13,7 @@ import {
   getRouteServiceCard,
   getRouteVacancy,
 } from "shared/const /router";
+import { FirmStyle } from "widgets/FirmStyle";
 
 export const privateRoutes = [
   {
@@ -43,6 +44,10 @@ export const privateRoutes = [
       {
         path: getRouteOrders(),
         element: BasketPage,
+      },
+      {
+        path: "fds",
+        element: FirmStyle,
       },
     ],
   },

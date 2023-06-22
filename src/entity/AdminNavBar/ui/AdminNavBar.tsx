@@ -23,7 +23,7 @@ export const AdminNavBar = (props: Props) => {
     {
       title: "Заказы",
       Icon: OrderIcon,
-      path: "/fds",
+      path: "fds",
     },
   ];
   return (
