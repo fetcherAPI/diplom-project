@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+}
+input,
+button,
+textarea,
+select {
+    margin: 0;
+    font: inherit;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+
+
+ul li {
+   margin:0;
+   padding: 0;
+   text-indent: 0;
+   list-style-type: none;
+}

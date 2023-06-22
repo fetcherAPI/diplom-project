@@ -1,0 +1,96 @@
+.ServiceCard {
+    padding-top: 250px;
+    display: flex;
+    align-items: center;
+    width: 70%;
+    margin:  auto; 
+    div{
+        &:nth-child(1) {
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+        img{
+            width: 35%;
+        }
+        }
+        
+    }
+}
+
+.title {
+    width: 50%;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 62px;
+    text-transform: uppercase;
+    color: #0E192E;
+}   
+
+.article {
+    background-color: #E8EFF5;
+    width: max-content;
+    padding: 2px 15px;
+    border-radius: 5px;
+    span {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #878C9E;
+        margin-right: 5px;
+    }
+}
+
+.add_btn {
+    padding: 14px 32px;
+    gap: 8px;
+    width: 248px;
+    height: 49px;
+    color: #FFF;
+    text-transform: uppercase;
+    background: #2A79CC;
+    border-radius: 4px;
+    // &:disabled,
+    // &[disabled]{
+    //     border: 1px solid #999999;
+    //     background-color: #cccccc;
+    //     color: #666666;
+    //     cursor: not-allowed;
+    // }
+}
+
+.remove_btn{
+    padding: 11px 15px;
+    gap: 8px;
+    color: #FFF;
+    text-transform: uppercase;
+    background: #2A79CC;
+    border-radius: 4px;
+    vertical-align: middle;
+    
+}
+
+.make_order_block{
+    div {
+        &:nth-child(2) {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    }
+}
+
+.basket_size_shower {
+    display: inline-block;
+    background-color: red;
+    text-align: center;
+    vertical-align: middle;
+    width: 25px;
+    color: #FFF;
+    height: 25px;
+    border-radius: 50%;
+    position: relative;
+    top: -25px;
+    left: -15px;
+}

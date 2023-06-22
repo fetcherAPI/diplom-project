@@ -1,0 +1,23 @@
+@import "reset";
+@import "variables/global";
+@import "themes/normal";
+@import "themes/dark";
+
+.app {
+    font: var(--font-m);
+    background: var(--bg-color);
+    min-width: 225px;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+.content-page {
+    display: flex;
+}
+
+button {
+    &:hover {
+        cursor: pointer;
+    }
+}

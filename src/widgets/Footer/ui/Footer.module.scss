@@ -1,0 +1,34 @@
+.Footer {
+    width: 100%;
+    background-color: #012550;
+    height: 500px;
+    padding: 5%;
+    margin-top: 10%;
+}
+
+.footer_header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.links {
+    display: flex;
+    flex-direction: column;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 18px;
+    text-transform: uppercase;
+    a {
+        color: #FFFFFF;
+    }
+    gap: 30px
+
+}
+.email {
+    font-weight: 600;
+    font-size: 2%s;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}

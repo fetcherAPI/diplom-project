@@ -1,0 +1,79 @@
+.Vacancy {
+    background: #E8EFF5;
+    border-radius: 4px;
+    height: 121px;
+    width: 100%;
+    overflow: hidden;
+    padding: 32px;
+    transition: all 0.5s;
+}
+
+.opened {
+    background-color: white;
+    border: 1px solid #E5E5E5;
+    border-radius: 4px;
+    height: 800px;
+    transition: all 1s;
+}
+
+.title {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.descriotion {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+}
+.vacancy_header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.details_list {
+    margin-top: 100px;
+}
+
+.details {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    ul {
+        padding-left: 10px;
+    }
+}
+
+.detail_title {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 18px;
+    text-transform: uppercase;
+}
+
+.details_item {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    &::before {
+        content: url('../assets/img/bullet.svg');
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+}
+
+.message_for_future_employe {
+    color: tomato;
+    margin-top: 30px;
+}

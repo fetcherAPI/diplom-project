@@ -1,0 +1,15 @@
+.ServicesList {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    width: 70%;
+    margin: auto;
+    margin-top: 60px;
+}
+
+.services_block {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
