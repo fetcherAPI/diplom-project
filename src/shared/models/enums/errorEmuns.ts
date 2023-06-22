@@ -6,4 +6,5 @@ export enum RESPONSE_ERRORS {
   BAD_REQUEST = "Неправильный запрос!",
   PERMISSION_DENIDED = "Доступ запрещен 403!!! ",
   UNEXPECTED_ERROR = "Непредвиденная ошибка!!!",
+  UNKNOWN_URL = "Путь не найден",
 }

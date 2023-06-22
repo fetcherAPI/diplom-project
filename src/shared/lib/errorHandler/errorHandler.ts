@@ -28,6 +28,11 @@ export const errorHandler = (
         //@ts-ignore
         error.response?.data.message || RESPONSE_ERRORS.PERMISSION_DENIDED
       );
+    case 404:
+      return (
+        //@ts-ignore
+        error.response?.data.message || RESPONSE_ERRORS.UNKNOWN_URL
+      );
     default:
       return RESPONSE_ERRORS.UNEXPECTED_ERROR;
   }

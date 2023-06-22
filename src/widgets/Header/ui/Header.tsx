@@ -7,8 +7,12 @@ import {
   getRouteNews,
   getRouteVacancy,
 } from "shared/const /router";
+import { Login } from "features/Login";
+import { useAppDispatch, useAppSelector } from "shared/lib";
 
 export const Header = () => {
+  const { isAuth } = useAppSelector((state) => state.Auth);
+
   return (
     <header className={classes.Header}>
       <div className={classes.logo_block}>
@@ -25,6 +29,8 @@ export const Header = () => {
           <Link to={getRouteVacancy()}>Вакансии</Link>
           <Link to={getRouteNews()}>Новости</Link>
           <Link to={"/"}>Контакты</Link>
+          {isAuth && <Link to={getRouteNews()}>Админ панель</Link>}
+          <Login />
         </ul>
         <div className={classes.search_block}>
           <input type="text" placeholder="Поиск товаров" />
