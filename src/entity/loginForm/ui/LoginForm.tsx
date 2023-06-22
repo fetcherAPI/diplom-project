@@ -8,6 +8,7 @@ export const LoginForm = () => {
   const { isAuth, isLoading } = useAppSelector((state) => state.Auth);
   const onFinish = (values: IAuthBody) => {
     dispatch(
+      //@ts-ignore
       loginByPassword({ email: values.email, password: values.password })
     ).then(() => {
       if (isAuth) {

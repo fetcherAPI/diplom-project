@@ -1,9 +1,14 @@
 import React from "react";
 import { OrderIcon } from "../assets/SVGComponents/OrderIcon";
-import { getRouteAdminPage, getRouteOrders } from "shared/const/router";
+import {
+  getRouteAdminPage,
+  getRouteCreateNew,
+  getRouteOrders,
+} from "shared/const/router";
 import { NavbarLinks } from "./NavbarLinks";
 import classes from "./AdminNavBar.module.scss";
 import { useLocation } from "react-router";
+import { NewIcon } from "../assets/SVGComponents/NewIcon";
 type Props = {};
 
 export const AdminNavBar = (props: Props) => {
@@ -16,9 +21,9 @@ export const AdminNavBar = (props: Props) => {
       path: getRouteOrders(),
     },
     {
-      title: "Заказы",
-      Icon: OrderIcon,
-      path: "/",
+      title: "Создать новость",
+      Icon: NewIcon,
+      path: getRouteCreateNew(),
     },
     {
       title: "Заказы",
