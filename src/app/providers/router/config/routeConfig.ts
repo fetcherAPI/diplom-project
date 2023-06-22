@@ -1,9 +1,11 @@
+import { AdminPage } from "pages/AdminPage";
 import { BasketPage } from "pages/BasketPage";
 import { MainPage } from "pages/MainPage";
 import { NewsPage } from "pages/NewsPage";
 import { ServicePage } from "pages/ServicePage";
 import { VacancyPage } from "pages/VacancyPage";
 import {
+  getRouteAdminPage,
   getRouteBasket,
   getRouteMain,
   getRouteNews,
@@ -31,6 +33,11 @@ export const privateRoutes = [
   {
     path: getRouteNews(),
     element: NewsPage,
+  },
+
+  {
+    path: getRouteAdminPage(),
+    element: AdminPage,
   },
 ];
 

@@ -4,6 +4,7 @@ export enum AppRoutes {
   BASKET = "basket",
   VACANCY = "vacancy",
   NEWS = "news",
+  ADMIN_PAGE = "admin-page",
 }
 
 export const getRouteMain = () => "/";
@@ -11,3 +12,5 @@ export const getRouteServiceCard = () => "/service-card";
 export const getRouteBasket = () => "/basket";
 export const getRouteVacancy = () => "/vacancy";
 export const getRouteNews = () => "/news";
+
+export const getRouteAdminPage = () => `/${AppRoutes.ADMIN_PAGE}`;

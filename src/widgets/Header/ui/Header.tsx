@@ -3,12 +3,13 @@ import classes from "./Header.module.scss";
 import { Link } from "react-router-dom";
 import logo from "shared/assets/img/convertedLogo.svg";
 import {
+  getRouteAdminPage,
   getRouteBasket,
   getRouteNews,
   getRouteVacancy,
 } from "shared/const /router";
 import { Login } from "features/Login";
-import { useAppDispatch, useAppSelector } from "shared/lib";
+import { useAppSelector } from "shared/lib";
 
 export const Header = () => {
   const { isAuth } = useAppSelector((state) => state.Auth);
@@ -29,7 +30,7 @@ export const Header = () => {
           <Link to={getRouteVacancy()}>Вакансии</Link>
           <Link to={getRouteNews()}>Новости</Link>
           <Link to={"/"}>Контакты</Link>
-          {isAuth && <Link to={getRouteNews()}>Админ панель</Link>}
+          {isAuth && <Link to={getRouteAdminPage()}>Админ панель</Link>}
           <Login />
         </ul>
         <div className={classes.search_block}>
