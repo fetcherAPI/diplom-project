@@ -64,7 +64,23 @@ export const privateRoutes = [
 
 export const publicRoutes = [
   {
-    path: "login",
-    element: "dsjkljlk",
+    path: getRouteMain(),
+    element: MainPage,
+  },
+  {
+    path: `${getRouteServiceCard()}/:id`,
+    element: ServicePage,
+  },
+  {
+    path: getRouteBasket(),
+    element: BasketPage,
+  },
+  {
+    path: getRouteVacancy(),
+    element: VacancyPage,
+  },
+  {
+    path: getRouteNews(),
+    element: NewsPage,
   },
 ];

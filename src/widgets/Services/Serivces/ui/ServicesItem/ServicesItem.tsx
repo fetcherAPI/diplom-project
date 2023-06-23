@@ -16,7 +16,6 @@ export const ServicesItem = (props: TServiceItemProps) => {
       <Link to={`${getRouteServiceCard()}/${id}`} state={props}>
         {serviceTitle}
       </Link>
-      <p>{serviceDetails}</p>
     </div>
   );
 };

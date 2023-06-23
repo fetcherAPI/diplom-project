@@ -65,6 +65,10 @@ export const ServiceCard = (props: Props) => {
           </span>
         </div>
       </div>
+      <div className={classes.desc}>
+        <h1>Описание</h1>
+        <p>{serviceDetails}</p>
+      </div>
     </div>
   );
 };
