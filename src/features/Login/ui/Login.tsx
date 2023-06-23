@@ -27,6 +27,8 @@ export const Login: React.FC = () => {
     }
   }, [isAuth]);
 
+  const handleLogout = () => {};
+
   return (
     <>
       <Button
@@ -34,7 +36,7 @@ export const Login: React.FC = () => {
         onClick={showModal}
         style={{ backgroundColor: "#2A79CC" }}
       >
-        Войти
+        {isAuth ? "Выйти" : "Войти"}
       </Button>
       <Modal
         title="Форма входа"
