@@ -3,6 +3,7 @@ import { OrderIcon } from "../assets/SVGComponents/OrderIcon";
 import {
   getRouteAdminPage,
   getRouteCreateNew,
+  getRouteCreateVacancy,
   getRouteOrders,
 } from "shared/const/router";
 import { NavbarLinks } from "./NavbarLinks";
@@ -26,9 +27,9 @@ export const AdminNavBar = (props: Props) => {
       path: getRouteCreateNew(),
     },
     {
-      title: "Заказы",
+      title: "Создать вакансию",
       Icon: OrderIcon,
-      path: "fds",
+      path: getRouteCreateVacancy(),
     },
   ];
   return (

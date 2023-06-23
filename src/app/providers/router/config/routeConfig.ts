@@ -1,4 +1,5 @@
 import { CreateNew } from "entity/CreateNew";
+import { CreateVacancy } from "entity/CreateVacancy";
 import { OrdersList } from "entity/OrdersList";
 import { AdminPage } from "pages/AdminPage";
 import { BasketPage } from "pages/BasketPage";
@@ -10,6 +11,7 @@ import {
   getRouteAdminPage,
   getRouteBasket,
   getRouteCreateNew,
+  getRouteCreateVacancy,
   getRouteMain,
   getRouteNews,
   getRouteOrders,
@@ -49,8 +51,8 @@ export const privateRoutes = [
         element: OrdersList,
       },
       {
-        path: "fds",
-        element: FirmStyle,
+        path: getRouteCreateVacancy(),
+        element: CreateVacancy,
       },
       {
         path: getRouteCreateNew(),

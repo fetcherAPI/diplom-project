@@ -1,41 +1,43 @@
+import { useState, useEffect } from "react";
 import { Title } from "shared/ui/Title";
 import classes from "./News.module.scss";
 import { News } from "entity/News";
-
-const vacancys = [
-  {
-    id: "1",
-    newsName: "Новые краски",
-    newsDescription:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-  },
-  {
-    id: "3",
-    newsName: "Акции",
-    newsDescription:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-  },
-  {
-    id: "4",
-    newsName: "Открыты новые офисы",
-    newsDescription:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-  },
-  {
-    id: "5",
-    newsName: "Новые апараты для печати",
-    newsDescription:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-  },
-];
+import { NewsAPI } from "entity/CreateNew/api/NewsAPI";
+import { INewaProps } from "entity/News/ui/News";
 
 export const NewsPage = () => {
+  const [data, setData] = useState<Array<INewaProps>>([]);
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleGetNews = async () => {
+    setIsLoading(true);
+    try {
+      const res = await NewsAPI.getNews();
+      console.log("res.data", res.data);
+      setData(res.data.news);
+    } catch (err) {
+      console.log("err", err);
+      setIsLoading(false);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!data.length) {
+      handleGetNews();
+    }
+  }, []);
+
   return (
     <div className={classes.VacancyPage}>
       <Title>Новости</Title>
-      {vacancys.map((vacancy) => (
-        <News key={vacancy.id} {...vacancy} />
-      ))}
+      {isLoading ? (
+        <p>Загрузка данных...</p>
+      ) : (
+        data.map((data) => <News key={data._id} {...data} />)
+      )}
     </div>
   );
 };

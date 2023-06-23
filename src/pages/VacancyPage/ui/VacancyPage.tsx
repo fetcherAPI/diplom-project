@@ -1,101 +1,41 @@
 import { Title } from "shared/ui/Title";
 import classes from "./VacancyPage.module.scss";
 import { Vacancy } from "entity/Vacancy";
-
-const vacancys = [
-  {
-    id: "1",
-    vacancyName: "менеджер по продажам",
-    vacancyDescription:
-      "Открыта вакансия на должность менеджера по продажам строительно-отделочых материалов.",
-    vacancyRequirements: [
-      "Высшее образование",
-      "Стрессоустойчивость",
-      "Знание Microsoft Office",
-    ],
-    vacancyConditions: [
-      "Оклад + премия",
-      "График работы 5/2, 8:00-17:00",
-      "Официальное трудоустройство",
-    ],
-    vacancyResponsibilities: [
-      "Ведение документооборота с клиентами",
-      "Обработка входящих заявок (эл.почта, телефон)",
-      "Информационная поддержка торговых представителей",
-    ],
-  },
-  {
-    id: "3",
-    vacancyName: "менеджер по продажам",
-    vacancyDescription:
-      "Открыта вакансия на должность менеджера по продажам строительно-отделочых материалов.",
-    vacancyRequirements: [
-      "Высшее образование",
-      "Стрессоустойчивость",
-      "Знание Microsoft Office",
-    ],
-    vacancyConditions: [
-      "Оклад + премия",
-      "График работы 5/2, 8:00-17:00",
-      "Официальное трудоустройство",
-    ],
-    vacancyResponsibilities: [
-      "Ведение документооборота с клиентами",
-      "Обработка входящих заявок (эл.почта, телефон)",
-      "Информационная поддержка торговых представителей",
-    ],
-  },
-  {
-    id: "4",
-    vacancyName: "менеджер по продажам",
-    vacancyDescription:
-      "Открыта вакансия на должность менеджера по продажам строительно-отделочых материалов.",
-    vacancyRequirements: [
-      "Высшее образование",
-      "Стрессоустойчивость",
-      "Знание Microsoft Office",
-    ],
-    vacancyConditions: [
-      "Оклад + премия",
-      "График работы 5/2, 8:00-17:00",
-      "Официальное трудоустройство",
-    ],
-    vacancyResponsibilities: [
-      "Ведение документооборота с клиентами",
-      "Обработка входящих заявок (эл.почта, телефон)",
-      "Информационная поддержка торговых представителей",
-    ],
-  },
-  {
-    id: "5",
-    vacancyName: "менеджер по продажам",
-    vacancyDescription:
-      "Открыта вакансия на должность менеджера по продажам строительно-отделочых материалов.",
-    vacancyRequirements: [
-      "Высшее образование",
-      "Стрессоустойчивость",
-      "Знание Microsoft Office",
-    ],
-    vacancyConditions: [
-      "Оклад + премия",
-      "График работы 5/2, 8:00-17:00",
-      "Официальное трудоустройство",
-    ],
-    vacancyResponsibilities: [
-      "Ведение документооборота с клиентами",
-      "Обработка входящих заявок (эл.почта, телефон)",
-      "Информационная поддержка торговых представителей",
-    ],
-  },
-];
+import { VacancyAPI } from "entity/CreateVacancy/api/VacancyAPI";
+import { useEffect, useState } from "react";
 
 export const VacancyPage = () => {
+  const [data, setData] = useState<Array<any>>([]);
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleGetNews = async () => {
+    setIsLoading(true);
+    try {
+      const res = await VacancyAPI.getVacancy();
+      console.log("res.data", res.data);
+      setData(res.data.vacancys);
+    } catch (err) {
+      console.log("err", err);
+      setIsLoading(false);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!data.length) {
+      handleGetNews();
+    }
+  }, []);
   return (
     <div className={classes.VacancyPage}>
       <Title>Вакансии</Title>
-      {vacancys.map((vacancy) => (
-        <Vacancy key={vacancy.id} {...vacancy} />
-      ))}
+      {isLoading ? (
+        <p>Загрузка данных...</p>
+      ) : (
+        data.map((vacancy) => <Vacancy key={vacancy.id} {...vacancy} />)
+      )}
     </div>
   );
 };

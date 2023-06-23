@@ -4,14 +4,17 @@ import open from "../assets/img/Polygon 4.svg";
 import close from "../assets/img/Polygon 4 (1).svg";
 import { classNames } from "shared";
 import { Link } from "react-router-dom";
-type Props = {
-  id: string;
-  newsName: string;
-  newsDescription: string;
+export type INewaProps = {
+  title: string;
+  description: string;
+  _id: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: 0;
 };
 
-export const News = (props: Props) => {
-  const { id, newsName, newsDescription } = props;
+export const News = (props: INewaProps) => {
+  const { _id, title, description } = props;
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -29,8 +32,8 @@ export const News = (props: Props) => {
     >
       <div className={classes.vacancy_header}>
         <div>
-          <h1 className={classes.title}>{newsName}</h1>
-          <p className={classes.descriotion}>{newsDescription}</p>
+          <h1 className={classes.title}>{title}</h1>
+          <p className={classes.descriotion}>{description}</p>
         </div>
 
         <button onClick={!isOpen ? handleOpen : handleClose}>
