@@ -12,7 +12,11 @@ const initialState: IAuthSliceShema = {
 export const AuthSlice = createSlice({
   name: "Auth",
   initialState,
-  reducers: {},
+  reducers: {
+    logout(state, action) {
+      state.isAuth = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(loginByPassword.pending, (state) => {
@@ -36,3 +40,5 @@ export const AuthSlice = createSlice({
       });
   },
 });
+
+export const { logout } = AuthSlice.actions;
